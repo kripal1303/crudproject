@@ -1,0 +1,10 @@
+.container-1{
+    height: 300px;
+    width: 300px;
+    border: 2px solid;
+    padding: 20px;
+    margin: auto;
+}
+.btn-add{
+    margin: auto;
+}
