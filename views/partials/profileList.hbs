@@ -1,0 +1,16 @@
+<div class="profileList">
+    <h1>Profiles:</h1><br>
+
+
+    <ul class="profileListItem">
+
+   {{#each profiles as |profile|}}
+    
+        <li>{{profile.clientname}} </li>
+        <li>{{profile.clientage}} </li>
+        <li>{{profile.clientpart}}</li>
+        <li>{{profile.clientlevel}}</li>
+
+    </ul>
+    {{/each}}
+</div>
