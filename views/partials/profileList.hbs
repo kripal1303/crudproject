@@ -12,6 +12,11 @@
         <li>{{profile.clientpart}}</li>
         <li>{{profile.clientlevel}}</li>
 
+        
+        <form action="/{{profile.id}}" method="get">
+        <button>SHOW</button>
+        </form>
+
     </ul>
     {{/each}}
 </div>

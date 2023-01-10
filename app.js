@@ -1,4 +1,5 @@
 
+const { profile } = require('console');
 const express = require ('express');
 const app = express();
 const PORT = 6500;
@@ -9,7 +10,9 @@ app.use(express.static(path.join(__dirname,'static')));
 app.set('view engine','hbs');
 app.use(express.urlencoded({extended: true}));
 
+
 hbs.registerPartials(__dirname + '/views/partials');
+const {parse} = require('path');
 
 
 
@@ -47,7 +50,18 @@ clientlevel
     
 })
 
+app.get('/:id',(req,res)=>{
+  const {id} = req.params;
+  const myProfile = profiles.filter((profile)=>profile.id===parseInt);
+  res.render('singleProfile',myProfile[0]);
+})
 
+app.get('/:id/edit',(req,res)=>{
+  const {id}=req.params;
+  const myProfile = profile.filter((profile)=>profile.id===parseInt);
+  res.render('editYourProfile',myProfile[0]);
+
+})
 
 
 
