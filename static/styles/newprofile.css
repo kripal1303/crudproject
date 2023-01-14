@@ -6,5 +6,6 @@
     margin: auto;
 }
 .btn-add{
+    display: inline-block;
     margin: auto;
 }
