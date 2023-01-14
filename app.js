@@ -1,17 +1,20 @@
 
 const express = require("express");
 const app = express();
-const PORT = 6800;
+const PORT = 4444;
 const hbs = require("hbs");
 const path = require("path");
 var methodOverride = require("method-override");
 const { parse } = require("path");
+const { query } = require("express");
 
 app.use(express.static(path.join(__dirname, "static")));
 app.set("view engine", "hbs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 hbs.registerPartials(__dirname + "/views/partials");
+
+
 
 let num = 1;
 let profiles = [];
@@ -45,11 +48,13 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/:id", (req, res) => {
-  const { id } = req.params;
-  const newProfile = profiles.filter((profile) => profile.id === parseInt(id));
-  res.render("singleProfile", newProfile[0]);
-});
+// app.get("/:id", (req, res) => {
+//   const { id } = req.params;
+//   const newProfile = profiles.filter((profile) => profile.id === parseInt(id));
+//   const muscle=newProfile[0].clientpart
+//   const level=newProfile[0].clientlevel
+//   res.render("singleProfile", newProfile[0],getJSON(muscle,level));
+// });
 
 app.get("/:id/edit", (req, res) => {
   const { id } = req.params;
@@ -84,6 +89,8 @@ app.delete("/:id", (req, res) => {
   res.redirect("/");
 });
 
+
+
 app.listen(PORT, () => {
-  console.log(`http//localhost:${PORT}`);
+  console.log(`http://localhost:${PORT}`);
 });
