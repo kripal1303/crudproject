@@ -1,31 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta Name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/styles/single-profile.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 </head>
+
 <body>
-    <div class="container">
-      <div>  {{clientname}}</div>
-       <div>{{clientage}}</div> 
-       <div>{{clientpart}}</div> 
-       <div>{{clientlevel}}</div> 
-       <div id="workoutDetails">
-        <div id="nameOfExercise"></div>
-        <div id="equipment"></div>
-        <div id="instruction"></div>
-       </div>
-   
-      <div class="buttons">
-        <form action="/{{id}}/edit" method="get">
-            <button>EDIT</button>
-        </form>
-        <form action="/{{id}}?_method=DELETE" method="POST">
-            <button>DELETE</button>
-        </form>
-     </div>
+  <div class="container">
+    <div class="details">
+      <div>NAME: {{clientname}}</div>
+      <div>AGE: {{clientage}}</div>
+      <div >MUSCLE: <span id="muscle">{{clientpart}}</span></div>
+      <div >LEVEL: <span id="difficulty">{{clientlevel}}</span></div>
     </div>
+
+    <div class="buttons">
+      <form action="/{{id}}/edit" method="get">
+        <button class="btn btn-primary">EDIT</button>
+      </form>
+      <form action="/{{id}}?_method=DELETE" method="POST">
+        <button class="btn btn-primary">DELETE</button>
+      </form>
+    </div>
+
+    {{!-- "Name": "Incline Hammer Curls",
+    "Type": "strength",
+    "muscle": "biceps",
+    "Equipment": "dumbbell",
+    "difficulty": "beginner",
+    "Instructions": --}}
+    <div class="workoutInfo">
+      <div class="individualExercise">
+        <div><strong>Name: </strong><span id="name0"></span></div>
+        <div><strong>Type: </strong><span id="type0"></span></div>
+        <div><strong>Equipment: </strong><span id="equipment0"></span></div>
+        <div><strong>Instructions: </strong><span id="instructions0"></span></div>
+      </div>
+      <div class="individualExercise">
+        <div><strong>Name: </strong><span id="name1"></span></div>
+        <div><strong>Type: </strong><span id="type1"></span></div>
+        <div><strong>Equipment: </strong><span id="equipment1"></span></div>
+        <div><strong>Instructions: </strong><span id="instructions1"></span></div>
+      </div>
+      <div class="individualExercise">
+        <div><strong>Name: </strong><span id="name2"></span></div>
+        <div><strong>Type: </strong><span id="type2"></span></div>
+        <div><strong>Equipment: </strong><span id="equipment2"></span></div>
+        <div><strong>Instructions: </strong><span id="instructions2"></span></div>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+  <script src="/js/singleProfile.js"></script>
 </body>
+
 </html>

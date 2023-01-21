@@ -1,3 +1,24 @@
 .container{
-    border: 1px solid;
+    margin-top: 50px;
+}
+.details{
+    display: inline-block;
+    margin-left: 450px;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 600;
+}
+.workoutInfo{
+    margin: 50px;
+    border: 2px solid;
+}
+.individualExercise{
+    margin: 30px;;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.buttons button{
+    margin: 10px;
 }

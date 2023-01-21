@@ -1,7 +1,7 @@
 
 const express = require("express");
 const app = express();
-const PORT = 4444;
+const PORT = 6800;
 const hbs = require("hbs");
 const path = require("path");
 var methodOverride = require("method-override");
@@ -16,8 +16,32 @@ hbs.registerPartials(__dirname + "/views/partials");
 
 
 
-let num = 1;
-let profiles = [];
+
+
+let num = 4;
+let profiles = [
+  {
+    clientname:"chakshu",
+    clientage:"19",
+    clientpart:"chest",
+    clientlevel:"intermediate",
+    id:1  
+  },
+  {
+    clientname:"chakshu",
+    clientage:"19",
+    clientpart:"chest",
+    clientlevel:"intermediate",
+    id:2
+  },
+  {
+    clientname:"chakshu",
+    clientage:"19",
+    clientpart:"chest",
+    clientlevel:"intermediate",
+    id:3 
+  }
+];
 
 
 //GET ALL THE PROFILES HERE
@@ -48,18 +72,41 @@ app.post("/", (req, res) => {
   res.redirect("/");
 });
 
-// app.get("/:id", (req, res) => {
-//   const { id } = req.params;
-//   const newProfile = profiles.filter((profile) => profile.id === parseInt(id));
-//   const muscle=newProfile[0].clientpart
-//   const level=newProfile[0].clientlevel
-//   res.render("singleProfile", newProfile[0],getJSON(muscle,level));
-// });
+app.get("/:id", (req, res) => {
+  const { id } = req.params;
+  const newProfile = profiles.filter((profile) => profile.id === parseInt(id));
+  // const dataArray=data.filter((profile)=>{
+  //   (profile.clientlevel==data.difficulty && profile.clientpart==data.muscle)
+  // })
+
+  // let ans=[];
+  // newProfile.forEach((profile)=>{
+  //   ans.clientname=profile.clientname;
+  //   ans.clientage=profile.clientage;
+  // })
+
+  // dataArray.forEach((personalData)=>{
+  //   let i=0;
+  //   ans[i].equipment=personalData[i].equipment
+  //   ans[i].name=personalData[i].name
+  //   ans[i].type=personalData[i].type
+  //   ans[i].muscle=personalData[i].muscle
+  //   ans[i].difficulty=personalData[i].difficulty
+  //   ans[i].instructions=personalData[i].instructions
+
+  //   i++;
+  // })
+
+  
+
+  // console.log(ans)
+  res.render("singleProfile",newProfile[0]);
+});
 
 app.get("/:id/edit", (req, res) => {
   const { id } = req.params;
   const newProfile = profiles.filter((profile) => profile.id === parseInt(id));
-  res.render("editYourProfile",newProfile[0]);
+  res.render("editYourProfile", newProfile[0]);
 });
 
 app.put("/:id", (req, res) => {
@@ -71,7 +118,7 @@ app.put("/:id", (req, res) => {
     }
   })
   const { clientname, clientage, clientpart, clientlevel } = req.body;
- 
+
   profiles[myIndex].clientname = clientname;
   profiles[myIndex].clientage = clientage;
   profiles[myIndex].clientpart = clientpart;

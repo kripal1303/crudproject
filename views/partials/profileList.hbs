@@ -1,18 +1,35 @@
 <div class="profileList">
-    <h1>Profiles:</h1><br>
-   {{#each profiles as |profile|}}
-   <ul class="profileListItem">
-        
+
+    {{#each profiles as |profile|}}
+    <div class="card profileListItem">
+        <div class="card-body" >
+            <h5 class="card-title">NAME: {{profile.clientname}}</h5>
+            <h5 class="card-title">AGE: {{profile.clientage}}</h5>
+            <h5 class="card-title">MUSCLE: {{profile.clientpart}}</h5>
+            <h5 class="card-title">LEVEL: {{profile.clientlevel}}</h5>
+
+            <p class="card-text"></p>
+
+            <form action="/{{profile.id}}" method="get">
+                <button class="btn btn-primary mx-auto" type="submit">SHOW</button>
+            </form>
+
+        </div>
+    </div>
+    {{/each}}
+    {{!-- {{#each profiles as |profile|}}
+    <ul class="profileListItem">
+
         <li>{{profile.clientname}} </li>
         <li>{{profile.clientage}} </li>
         <li id="part">{{profile.clientpart}}</li>
         <li id="level">{{profile.clientlevel}}</li>
 
-        
+
         <form action="/{{profile.id}}" method="get">
             <button id="show" type="submit">SHOW</button>
         </form>
 
     </ul>
-    {{/each}}
+    {{/each}} --}}
 </div>
